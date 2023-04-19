@@ -6,7 +6,7 @@ const socket = io('http://localhost:5000', {
     transports: ['websocket']
 });
 
-export default function WebsocketClientTest() {
+export default function WebSocketClientTest() {
     const [socketData, setSocketData] = useState<null | any>(null);
     const [object,SetObject] = useState<any>({});
     
