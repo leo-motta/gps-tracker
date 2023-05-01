@@ -1,0 +1,201 @@
+:root {
+	--gray1:#D9D9D9;
+	--purple1:#5200FF;
+	--purple2:#8C00FB;
+	--purple2dark:#6B00BF;
+	--pink1:#BD00FF;
+	--pink1dark:#8600B6;
+	--lightpink:#EDBAFF;
+}
+
+body {
+	width:100%;
+	height:100%;
+	margin:0px;
+	box-sizing: border-box;
+}
+
+.containerMobileMobile {
+	display:flex;
+	flex-direction:row;
+	flex-wrap:wrap;
+	width:100%;
+	height:100vh;
+}
+
+.containerMobile .content .sidebar {
+	display:flex;
+	flex-direction:row;
+	flex-wrap:wrap;
+	justify-content: space-around;
+	align-items: center;
+
+	width:100%;
+	height:70px;
+	background-color: var(--purple1);
+}
+
+.containerMobile .content .sidebar .icon {
+	height:43px;
+	width:43px;
+}
+
+.containerMobile .content {
+	display:flex;
+	flex-direction:column;
+	flex-wrap:wrap;
+	flex-grow: 1;
+}
+
+.containerMobile .content .menu {
+	display:flex;
+	flex-direction:column;
+	flex-wrap:wrap;
+
+	background-color:white;
+	height:234px;
+}
+
+.containerMobile .content .menu .menu-row {
+	display:flex;
+	flex-direction:row;
+	flex-wrap:wrap;
+
+
+	flex-grow: 1;
+	flex:1;
+
+	align-items: center;
+	margin-left: 2px;
+	gap:2px;
+}
+
+.containerMobile .content .menu .menu-row .menu-button button {
+	height:43px;
+	width:43px;
+	font-size: 1.2rem;
+
+	border:none;
+	background-color: var(--purple2);
+	color: white;
+}
+
+.containerMobile .content .menu .menu-row .menu-button button:hover {
+	background-color: var(--purple2dark);
+}
+
+
+.containerMobile .content .menu .menu-row .menu-icon {
+	height:43px;
+}
+
+.containerMobile .content .menu .menu-row .select-option {
+	/* RESET */
+	-webkit-appearance: none; /* Safari e Chrome */
+  	-moz-appearance: none; /* Firefox */
+	appearance: none;
+	border: none;
+	margin: 0;
+	outline: none;
+
+	height:43px;
+	width:500px;
+	max-width:500px;
+	background-color: var(--gray1);
+
+
+	padding: 0.25em 0.5em;
+	padding-right: 3em;
+	font-size: 1.25rem;
+	cursor: pointer;
+	line-height: 1.1;
+
+  	white-space: nowrap; /* Impede que o texto seja quebrado em várias linhas */
+  	overflow: hidden; /* Esconde qualquer conteúdo que ultrapasse a largura da div */
+  	text-overflow: ellipsis; /* Adiciona três pontos no final do conteúdo que ultrapassar a largura da div */
+
+  	background-image: url('./icons/arrow.svg');
+	background-repeat: no-repeat;
+	background-position: right center;
+}
+
+.containerMobile .content .menu .menu-row .select-option:hover {
+	background-image: url('./icons/arrow_hover.svg');
+	background-repeat: no-repeat;
+	background-position: right center;
+}
+
+.containerMobile .content .menu .menu-row .menu-info {
+	display:flex;
+	flex-direction:column;
+	width:140px;
+	gap:6px;
+}
+
+.containerMobile .content .map {
+	width:100%;
+	height:60vh;
+}
+
+.unselectable {
+	-webkit-user-select: none; /* Safari */        
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+/Edge */
+	user-select: none; /* Padrão */
+}
+
+/* TOGGLE SWITCH */
+
+.toggle {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1rem;
+  padding-left: 20px;
+}
+
+.toggle-switch {
+  display: inline-block;
+  border:1px solid gray;
+  background: white;
+  border-radius: 16px;
+  width: 46px;
+  height: 20px;
+  position: relative;
+  vertical-align: middle;
+  transition: background 0.25s;
+}
+.toggle-switch:before, .toggle-switch:after {
+  content: "";
+}
+.toggle-switch:before {
+  display: block;
+  background:var(--pink1);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left:0px;
+  transition: left 0.25s;
+}
+
+.toggle:hover .toggle-switch:before {
+  background: var(--pink1dark);
+}
+
+.toggle-checkbox:checked + .toggle-switch {
+  background: var(--lightpink);
+}
+.toggle-checkbox:checked + .toggle-switch:before {
+  left: 26px;
+}
+
+.toggle-checkbox {
+  position: absolute;
+  visibility: hidden;
+}
+
+.toggle-label {
+  margin-left: 5px;
+  position: relative;
+  top: 2px;
+}

@@ -1,12 +1,18 @@
-import React from 'react'
-import WebSocketClientTest from './pages/WebSocketTest'
-import Tracker from './pages/TrackerTest'
-import "leaflet/dist/leaflet.css"
+import React, { useRef} from 'react';
+import Main from './pages/Main';
+import MainMobile from './pages/Main/mobile';
+import "leaflet/dist/leaflet.css";
+import "./styles.css";
+import "./reset.css";
 
 function App() {
-    return (
+  const windowWidthSize = useRef<number>(window.innerWidth);
+
+  return (
     <>
-     <Tracker/>
+      {
+        (windowWidthSize.current > 1200) ? <Main/> : <MainMobile/>
+      }
     </>
   )
 }

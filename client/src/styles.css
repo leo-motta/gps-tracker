@@ -1,0 +1,16 @@
+@font-face {
+    font-family: "Comfortaa";
+    src:url('./assets/fonts/Comfortaa/Comfortaa-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: "Roboto";
+    src:url('./assets/fonts/Roboto/Roboto-Light.ttf')
+}
+
+html, body, #root, .App {
+    height: 100%;
+    border:none;
+    margin:none;
+    font-family: "Comfortaa",sans-serif;
+}
