@@ -1,19 +1,14 @@
-import React, { useRef} from 'react';
+//import React, { useRef} from 'react';
 import Main from './pages/Main';
-import MainMobile from './pages/Main/mobile';
 import "leaflet/dist/leaflet.css";
 import "./styles.css";
 import "./reset.css";
 
 function App() {
-  const windowWidthSize = useRef<number>(window.innerWidth);
+  //const windowWidthSize = useRef<number>(window.innerWidth);
 
   return (
-    <>
-      {
-        (windowWidthSize.current > 1200) ? <Main/> : <MainMobile/>
-      }
-    </>
+    <Main/>
   )
 }
 
