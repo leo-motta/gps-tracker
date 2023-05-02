@@ -7,7 +7,7 @@ export default function Main() {
 
             <div className="sidebar">
                 <img src="./icons/HomeIcon.png" className="icon" alt="icon" />
-                <img src="./icons/OptionsIcon.png" className="icon" alt="icon" />
+                <img src="./icons/OptionsIcon.png" className="icon" id="options-icon" alt="icon" />
                 <img src="./icons/ExitIcon.png" className="icon" id="exit-icon" alt="icon" />
             </div>
 
@@ -37,7 +37,7 @@ export default function Main() {
 
                     <div className="menu-row">
                         <div>
-                            <img src="./icons/route2.png" className="menu-icon" alt="icon"/>
+                            <img src="./icons/route2.png" className="menu-icon" alt="icon" />
                         </div>
                         <div>
                             <select className="select-option" id="select-route" name="select-route">
