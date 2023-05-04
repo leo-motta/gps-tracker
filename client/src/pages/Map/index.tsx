@@ -10,14 +10,14 @@ export default function Map({width, height}: any) {
         L.latLng(-20.202192, -40.219772)
     ];
 
-    const rota: L.LatLng[] = [
+    const route: L.LatLng[] = [
         L.latLng(-20.203143, -40.219237),
         L.latLng(-20.203977, -40.220479),
         L.latLng(-20.205148, -40.223632),
         L.latLng(-20.205822, -40.231214)
     ];
 
-    const lastPos = rota[rota.length-1];
+    const lastPos = route[route.length-1];
 
     const carIcon = new L.Icon({
         iconUrl: 'https://www.nicepng.com/png/full/54-544278_car-png-top-transparent-car-top-car-top.png',
@@ -38,7 +38,7 @@ export default function Map({width, height}: any) {
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
-            <RoutingMachine coords={rota}/>
+            <RoutingMachine coords={route}/>
             <Marker position={lastPos} icon={carIcon}>
                 <Popup>
                     Car Info
