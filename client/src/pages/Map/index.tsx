@@ -1,49 +1,49 @@
-import { TileLayer, MapContainer, Marker, Popup } from "react-leaflet";
+import { TileLayer, MapContainer, Marker, Popup, useMap } from "react-leaflet";
 import RoutingMachine from "./routingMachine";
 import L from "leaflet";
+import { useEffect, useState } from "react";
 
-export default function Map({width, height}: any) {
-    const centerPos: L.LatLngExpression = [-20.175742, -40.193036];
+export default function Map({ width, height, positions, showPath}: any) {
 
-    const coords: L.LatLng[] = [
-        L.latLng(-20.175742, -40.193036),
-        L.latLng(-20.202192, -40.219772)
-    ];
-
-    const route: L.LatLng[] = [
-        L.latLng(-20.203143, -40.219237),
-        L.latLng(-20.203977, -40.220479),
-        L.latLng(-20.205148, -40.223632),
-        L.latLng(-20.205822, -40.231214)
-    ];
-
-    const lastPos = route[route.length-1];
+    function RecenterAutomatically(props: any | null) {
+        const map = useMap();
+        useEffect(() => {
+            map.setView([props.lat, props.lng], 30);
+        }, [props.lat, props.lng]);
+        return null;
+    }
 
     const carIcon = new L.Icon({
         iconUrl: 'https://www.nicepng.com/png/full/54-544278_car-png-top-transparent-car-top-car-top.png',
         iconSize: [80, 40],
         iconAnchor: [40, 30],
         popupAnchor: [0, -41],
-        shadowSize:   [50, 64],
+        shadowSize: [50, 64],
         shadowAnchor: [4, 62],
     });
 
-    return(
-        <MapContainer 
-        center={centerPos} 
-        zoom={5} 
-        scrollWheelZoom={true} 
-        style={{ minHeight: height, minWidth: width }}>
-            <TileLayer 
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+    return (
+        <MapContainer
+            center={[0, 0]}
+            zoom={5}
+            scrollWheelZoom={true}
+            style={{ minHeight: height, minWidth: width }}>
+            <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
-            <RoutingMachine coords={route}/>
-            <Marker position={lastPos} icon={carIcon}>
-                <Popup>
-                    Car Info
-                </Popup>
-            </Marker>
-        </MapContainer>
-    );
+            { positions[positions.length-1] ?
+            <>
+                <RoutingMachine key={positions} coords={positions}/>
+                <Marker position={positions[positions.length-1]} icon={carIcon}>
+                    <Popup>
+                        Lat: {positions[positions.length-1].lat} <br />
+                        Lng: {positions[positions.length-1].lng}
+                    </Popup>
+                </Marker>
+                <RecenterAutomatically lat={positions[positions.length-1].lat} lng={positions[positions.length-1].lng} />
+            </> : <></>
+            }
+</MapContainer>
+);
 }

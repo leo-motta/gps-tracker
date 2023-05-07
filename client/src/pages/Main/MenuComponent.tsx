@@ -1,4 +1,21 @@
-export default function MenuComponent() {
+export default function MenuComponent({ speed, distance, timestamp, dispatch }: any) {
+
+    function timestampToString(timestamp: number) {
+        // Convert the difference to seconds, minutes, and hours
+        const seconds = Math.floor(timestamp / 1000) % 60;
+        const minutes = Math.floor(timestamp / (1000 * 60)) % 60;
+        const hours = Math.floor(timestamp / (1000 * 60 * 60));
+
+        // Format the result as a string
+        const result = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+        return result;
+    }
+
+    function handleCheckboxClick() {
+        dispatch({type: 'set_showpath'})
+    }
+
     return (
         <div className="menu">
 
@@ -42,7 +59,7 @@ export default function MenuComponent() {
                 </div>
                 <div className="unselectable">
                     <label className="toggle">
-                        <input className="toggle-checkbox" type="checkbox" />
+                        <input className="toggle-checkbox" type="checkbox" onClick={handleCheckboxClick}/>
                         <div className="toggle-switch"></div>
                         <span className="toggle-label">Mostrar trajeto</span>
                     </label>
@@ -58,28 +75,21 @@ export default function MenuComponent() {
             </div>
 
             <div className="menu-row">
+
                 <div>
                     <img src="./icons/control-panel2.png" className="menu-icon" alt="icon" />
                 </div>
                 <div className="menu-info unselectable">
                     <div>Velocidade est.</div>
-                    <div>50 km/h</div>
+                    <div>{speed ? speed.toFixed(2) : 0} km/h</div>
                 </div>
 
                 <div>
                     <img src="./icons/control-panel2.png" className="menu-icon" alt="icon" />
                 </div>
                 <div className="menu-info unselectable">
-                    <div>Quilometragem</div>
-                    <div>30 km</div>
-                </div>
-
-                <div>
-                    <img src="./icons/gas.png" className="menu-icon" alt="icon" />
-                </div>
-                <div className="menu-info unselectable">
-                    <div>Consumo est.</div>
-                    <div>12L</div>
+                    <div>Distância</div>
+                    <div>{distance ? distance.toFixed(2) : 0} km</div>
                 </div>
 
                 <div>
@@ -87,7 +97,15 @@ export default function MenuComponent() {
                 </div>
                 <div className="menu-info unselectable">
                     <div>Tempo est.</div>
-                    <div>03:02:23</div>
+                    <div>{timestamp ? timestampToString(timestamp) : '00:00:00'}</div>
+                </div>
+
+                <div>
+                    <img src="./icons/gas.png" className="menu-icon" alt="icon" />
+                </div>
+                <div className="menu-info unselectable">
+                    <div>Consumo est.</div>
+                    <div>0 L</div>
                 </div>
 
                 <div>
@@ -95,7 +113,7 @@ export default function MenuComponent() {
                 </div>
                 <div className="menu-info unselectable">
                     <div>Tempo de viagem</div>
-                    <div>03:30:00</div>
+                    <div>00:00:00</div>
                 </div>
             </div>
 
