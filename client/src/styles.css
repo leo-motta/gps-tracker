@@ -5,7 +5,12 @@
 
 @font-face {
     font-family: "Roboto";
-    src:url('./assets/fonts/Roboto/Roboto-Light.ttf')
+    src:url('./assets/fonts/Roboto/Roboto-Light.ttf');
+}
+
+@font-face {
+	font-family:"Inter";
+    src:url('./assets/fonts/Inter/Inter-Medium.ttf');
 }
 
 html, body, #root, .App {
@@ -13,4 +18,309 @@ html, body, #root, .App {
     border:none;
     margin:none;
     font-family: "Comfortaa",sans-serif;
+}
+
+:root {
+	--gray1:#D9D9D9;
+	--lightgrey:lightgrey;
+	--grey:grey;
+	--white: white;
+	--purple1:#5200FF;
+	--purple2:#8C00FB;
+	--purple2dark:#6B00BF;
+	--purple3:#1F0061;
+	--pink1:#BD00FF;
+	--pink1dark:#8600B6;
+	--lightpink:#EDBAFF;
+}
+
+body {
+	width:100%;
+	height:100%;
+	margin:0px;
+	box-sizing: border-box;
+}
+
+.container {
+	display:flex;
+	flex-direction:row;
+	flex-wrap:nowrap;
+	width:100%;
+	height:100vh;
+}
+
+.container .sidebar {
+	display:flex;
+	flex-direction:column;
+	flex-wrap:nowrap;
+	align-items: center;
+
+	width:80px;
+	min-width: 80px;
+	height:100%;
+	background-color: var(--purple1);
+}
+
+.container .sidebar .icon {
+	height:34.4px;
+	width:34.4px;
+	margin-top: 4em;
+}
+
+.container .sidebar #exit-icon {
+	margin-top:60vh;
+}
+
+.container .content {
+	display:flex;
+	flex-direction:column;
+	flex-wrap:nowrap;
+	flex-grow: 1;
+}
+
+.container .content .menu {
+	display:flex;
+	flex-direction:column;
+	flex-wrap:nowrap;
+
+	background-color:white;
+	height:187.2px;
+}
+
+.container .content .menu .menu-row {
+	display:flex;
+	flex-direction:row;
+	flex-wrap:nowrap;
+
+
+	flex-grow: 1;
+	flex:1;
+
+	align-items: center;
+	margin-left:8px;
+	gap:8px;
+}
+
+.container .content .menu .menu-row .menu-button button {
+	height:34.4px;
+	width:34.4px;
+	font-size: 1rem;
+
+	border:none;
+	background-color: var(--purple2);
+	color: white;
+}
+
+.container .content .menu .menu-row .menu-button button:hover {
+	background-color: var(--purple2dark);
+}
+
+.container .content .menu .menu-row .menu-icon {
+	height:34.4px;
+}
+
+.container .content .menu .menu-row .select-option {
+	/* RESET */
+	-webkit-appearance: none; /* Safari e Chrome */
+  	-moz-appearance: none; /* Firefox */
+	appearance: none;
+	border: none;
+	margin: 0;
+	outline: none;
+
+	height:34.4px;
+	width:400px;
+	max-width:500px;
+	background-color: var(--gray1);
+
+
+	padding: 0.25em 0.5em;
+	padding-right: 3em;
+	font-size: 1rem;
+	cursor: pointer;
+	line-height: 1.1;
+
+  	white-space: nowrap;
+  	overflow: hidden;
+  	text-overflow: ellipsis;
+
+  	background-image: url('./icons/arrow.svg');
+	background-size: 34.4px;
+	background-repeat: no-repeat;
+	background-position: right center;
+}
+
+.container .content .menu .menu-row .select-option:hover {
+	background-image: url('./icons/arrow_hover.svg');
+	background-size: 34.4px;
+	background-repeat: no-repeat;
+	background-position: right center;
+}
+
+.container .content .menu .menu-row .menu-info {
+	display:flex;
+	flex-direction:column;
+	width:124px;
+	gap:4.8px;
+}
+
+.container .content .menu .menu-row .menu-info div {
+	white-space: nowrap;
+	overflow: hidden; 
+	text-overflow: ellipsis;
+	font-size: 0.85rem;
+}
+
+.container .content .map {
+	background-color:transparent;
+	flex:1;
+}
+
+.container .unselectable {
+	-webkit-user-select: none; /* Safari */        
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+/Edge */
+	user-select: none; /* Padrão */
+}
+
+/* TOGGLE SWITCH */
+.container .toggle {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.9rem;
+  padding-left: 20px;
+}
+
+.container .toggle-switch {
+  display: inline-block;
+  border:1px solid var(--grey);
+  background: var(--grey);
+  border-radius: 16px;
+  width: 36.8px;
+  height: 16px;
+  position: relative;
+  vertical-align: middle;
+  transition: background 0.25s;
+}
+.container .toggle-switch:before, .toggle-switch:after {
+  content: "";
+}
+
+.container .toggle-switch:before {
+  display: block;
+  background:var(--lightgrey);
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  left:0px;
+  transition: left 0.25s;
+}
+
+.container .toggle:hover .toggle-switch:before {
+  background: var(--gray1);
+}
+
+.container .toggle-checkbox:checked + .toggle-switch {
+  background: var(--purple1);
+}
+
+.container .toggle-checkbox:checked + .toggle-switch:before {
+  left: 20px;
+}
+
+.container .toggle-checkbox {
+  position: absolute;
+  visibility: hidden;
+}
+
+.container .toggle-label {
+  margin-left: 4px;
+  position: relative;
+  top: 2px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* LOGIN FORM */
+.formContainer {
+	height:100vh;
+	font-family: 'Inter', cursive;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.formWrapper {
+	background-color: var(--purple3);
+	width:452px;
+	height:555px;
+	color:var(--white);
+}
+
+.formWrapper .logo {
+	height:66px;
+	margin-top: 56px;
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	gap:20px;
+}
+
+.formWrapper .logo div {
+	font-size:2rem;
+	font-weight: bold;
+	line-height: 66px;
+}
+
+.formWrapper form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	gap:20px;
+	margin-top: 68px;
+}
+
+.formWrapper form .input {
+	width:284px;
+	height:40px;
+	color: white;
+
+	border: none;
+	background-color: transparent;
+	color: var(--white);
+	box-shadow: inset 0 -2px 0 var(--white);
+	font-size: 1.2rem;
+}
+
+.formWrapper form .button {
+	border: none;
+    margin: 0;
+    padding: 0;
+
+    margin-top:30px;
+	width:284px;
+	height:58px;
+	background-color: var(--purple2);
+	color:white;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.formWrapper .text {
+	width:fit-content;
+	margin: 42px auto;
+}
+
+.formWrapper .text a {
+	color: inherit;
+  	text-decoration: inherit;
+	font-weight: bold;
 }

@@ -2,7 +2,6 @@ import { useEffect, useReducer, useState } from "react";
 import MapComponent from "./MapComponent";
 import MenuComponent from "./MenuComponent";
 import SidebarComponent from "./SidebarComponent";
-import "./main.css";
 import L from "leaflet";
 import { io } from "socket.io-client";
 
