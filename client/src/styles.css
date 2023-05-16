@@ -246,6 +246,10 @@ body {
 
 /* LOGIN FORM */
 .formContainer {
+	background-image: url("./background.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+
 	height:100vh;
 	font-family: 'Inter', cursive;
 	display: flex;
