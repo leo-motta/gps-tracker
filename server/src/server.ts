@@ -6,13 +6,19 @@ const io = require('socket.io')(server);
 const cors = require('cors');
 const mqtt = require('mqtt');
 const fetch = require('node-fetch');
+const connectDB = require('./db');
 
 const port = process.env.PORT || 5001;
 
+//BD
+connectDB();
+
 app.use(cors());
-app.use(express.static(__dirname + '/../public'));
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+//app.use(express.static(__dirname + '/../public'));
 
-
+/*
 // Calculations
 let positions: any[] = [];
 
@@ -116,6 +122,10 @@ mqtt_client.on('message', (topic: any, payload: string) => {
     console.error(`Error parsing JSON: ${err}`);
   }
 });
+*/
+
+//API
+app.use('/api/users', require('./API/user/userRoutes'));
 
 // Server
 server.listen(port, () => {
