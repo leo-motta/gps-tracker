@@ -1,4 +1,5 @@
 interface State {
+    user:any,
     positions: L.LatLng[],
     speed: number,
     distance: number,
@@ -6,7 +7,8 @@ interface State {
     showpath: boolean
 }
 
-type Action = { type: 'add_position'; payload: L.LatLng } 
+type Action = { type: 'login', payload: any }
+| { type: 'add_position'; payload: L.LatLng } 
 | { type: 'set_positions'; payload: L.LatLng[] } 
 | { type: 'set_speed'; payload: number }
 | { type: 'set_distance'; payload: number }
@@ -15,6 +17,8 @@ type Action = { type: 'add_position'; payload: L.LatLng }
 
 export default function reducer(state: State, action: Action) {
     switch (action.type) {
+        case 'login':
+            return {...state, user: action.payload };
         case 'add_position':
             return { ...state, positions: [...state.positions, action.payload] };
         case 'set_positions':

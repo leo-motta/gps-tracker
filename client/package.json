@@ -1,6 +1,7 @@
 {
   "name": "client",
   "private": true,
+  "proxy": "http://localhost:5000",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -10,6 +11,7 @@
   },
   "dependencies": {
     "@types/socket.io-client": "^3.0.0",
+    "axios": "^1.4.0",
     "cors": "^2.8.5",
     "leaflet": "^1.9.3",
     "leaflet-routing-machine": "^3.2.12",

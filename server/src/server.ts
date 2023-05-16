@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 //app.use(express.static(__dirname + '/../public'));
 
-/*
+
 // Calculations
 let positions: any[] = [];
 
@@ -122,7 +122,7 @@ mqtt_client.on('message', (topic: any, payload: string) => {
     console.error(`Error parsing JSON: ${err}`);
   }
 });
-*/
+
 
 //API
 app.use('/api/users', require('./API/user/userRoutes'));

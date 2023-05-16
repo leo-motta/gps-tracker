@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import axios from 'axios';
 
-export default function Login() {
+export default function Login({dispatch}: any) {
     const navigate = useNavigate();
     const [loginFormData, setLoginFormData] = useState({
         email:'',
@@ -25,8 +26,15 @@ export default function Login() {
             password
         };
 
-        console.log(loginData);
-        //navigate('./home');
+        axios.post('http://localhost:5000/api/users/login', loginData)
+            .then((res) => {
+                console.log(res);
+                dispatch({ type: 'login', payload: res.data });
+                navigate('./home');
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     }
 
     return (
