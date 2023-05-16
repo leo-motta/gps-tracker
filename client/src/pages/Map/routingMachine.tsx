@@ -7,7 +7,7 @@ const createRoutingMachineLayer = ({coords}: any) => {
   const instance = L.Routing.control({
     waypoints: coords,
     lineOptions: {
-      styles: [{ color: 'red', weight: 4 }],
+      styles: [{ color: '#8C00FB', weight: 6 }],
       extendToWaypoints: true,
       missingRouteTolerance:0
     },

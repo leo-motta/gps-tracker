@@ -14,8 +14,9 @@ export default function Map({ width, height, positions, showPath}: any) {
     }
 
     const carIcon = new L.Icon({
-        iconUrl: 'https://www.nicepng.com/png/full/54-544278_car-png-top-transparent-car-top-car-top.png',
-        iconSize: [80, 40],
+        //iconUrl: 'https://www.nicepng.com/png/full/54-544278_car-png-top-transparent-car-top-car-top.png',
+        iconUrl: './benz.png',
+        iconSize: [130, 71],
         iconAnchor: [40, 30],
         popupAnchor: [0, -41],
         shadowSize: [50, 64],
