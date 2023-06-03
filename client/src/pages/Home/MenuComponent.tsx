@@ -25,7 +25,8 @@ export default function MenuComponent({ speed, distance, timestamp, dispatch }: 
                 </div>
                 <div>
                     <select className="select-option" id="select-car" name="select-car">
-                        <option value="opcao1">VOLKSWAGEN SAVEIRO 1.6 MSI TRENDLINE CS 8V FLEX 2P MANUAL</option>
+                        {/*<option value="opcao1">VOLKSWAGEN SAVEIRO 1.6 MSI TRENDLINE CS 8V FLEX 2P MANUAL</option>*/}
+                        <option value="opcao1">2016 MERCEDES-BENZ AMG GT 4.0 V8 TURBO GASOLINA S 7G-DCT</option>
                         <option value="opcao2">Opção 2</option>
                         <option value="opcao3">Opção 3</option>
                         <option value="opcao4">Opção 4</option>
@@ -45,7 +46,7 @@ export default function MenuComponent({ speed, distance, timestamp, dispatch }: 
                 </div>
                 <div>
                     <select className="select-option" id="select-route" name="select-route">
-                        <option value="opcao1">Fri, 02 Feb 1996 03:04:05 GMT</option>
+                        <option value="opcao1">Sat, 03 Jun 2023 12:00:00 GMT</option>
                         <option value="opcao2">Opção 2</option>
                         <option value="opcao3">Opção 3</option>
                         <option value="opcao4">Opção 4</option>
@@ -59,7 +60,7 @@ export default function MenuComponent({ speed, distance, timestamp, dispatch }: 
                 </div>
                 <div className="unselectable">
                     <label className="toggle">
-                        <input className="toggle-checkbox" type="checkbox" onClick={handleCheckboxClick}/>
+                        <input className="toggle-checkbox" type="checkbox" onClick={handleCheckboxClick} checked/>
                         <div className="toggle-switch"></div>
                         <span className="toggle-label">Mostrar trajeto</span>
                     </label>
@@ -105,7 +106,7 @@ export default function MenuComponent({ speed, distance, timestamp, dispatch }: 
                 </div>
                 <div className="menu-info unselectable">
                     <div>Consumo est.</div>
-                    <div>0 L</div>
+                    <div>0.34 L</div>
                 </div>
 
                 <div>
@@ -113,7 +114,7 @@ export default function MenuComponent({ speed, distance, timestamp, dispatch }: 
                 </div>
                 <div className="menu-info unselectable">
                     <div>Tempo de viagem</div>
-                    <div>00:00:00</div>
+                    <div>00:05:35</div>
                 </div>
             </div>
 

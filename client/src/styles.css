@@ -129,14 +129,14 @@ body {
 	outline: none;
 
 	height:34.4px;
-	width:400px;
+	width:500px;
 	max-width:500px;
 	background-color: var(--gray1);
 
 
 	padding: 0.25em 0.5em;
 	padding-right: 3em;
-	font-size: 1rem;
+	font-size: 1.1rem;
 	cursor: pointer;
 	line-height: 1.1;
 

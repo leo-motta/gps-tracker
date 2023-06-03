@@ -75,7 +75,7 @@ const mqtt_client = mqtt.connect(connectUrl, {
   reconnectPeriod: 1000,
 });
 
-const topic = '/nodejs/mqtt/gpstracker';
+const topic = 'gpstracker/1/coordinates';
 mqtt_client.on('connect', () => {
   console.log('MQTT Connected');
 

@@ -20,7 +20,15 @@ export default function reducer(state: State, action: Action) {
         case 'login':
             return {...state, user: action.payload };
         case 'add_position':
-            return { ...state, positions: [...state.positions, action.payload] };
+            if( state.positions.length > 0
+                && Math.abs(Math.abs(state.positions[state.positions.length - 1].lat) - Math.abs(action.payload.lat)) < 0.001
+                && Math.abs(Math.abs(state.positions[state.positions.length - 1].lng) - Math.abs(action.payload.lng)) < 0.001) 
+                {
+                    return {...state}
+                }
+            else {
+                return { ...state, positions: [...state.positions, action.payload] };
+            }
         case 'set_positions':
             return { ...state, positions: action.payload };
         case 'set_speed':
