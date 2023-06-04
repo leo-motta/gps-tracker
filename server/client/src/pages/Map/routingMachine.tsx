@@ -17,6 +17,7 @@ const createRoutingMachineLayer = ({coords}: any) => {
     fitSelectedRoutes: true,
     showAlternatives: false,
     waypointMode: 'connect',
+    // @ts-ignore
     createMarker: function() { return null; }
   });
 

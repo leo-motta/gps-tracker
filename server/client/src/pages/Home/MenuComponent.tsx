@@ -81,7 +81,7 @@ export default function MenuComponent({ speed, distance, timestamp, dispatch }: 
                     <img src="./icons/control-panel2.png" className="menu-icon" alt="icon" />
                 </div>
                 <div className="menu-info unselectable">
-                    <div>Velocidade est.</div>
+                    <div>Velocidade</div>
                     <div>{speed ? speed.toFixed(2) : 0} km/h</div>
                 </div>
 
@@ -97,7 +97,7 @@ export default function MenuComponent({ speed, distance, timestamp, dispatch }: 
                     <img src="./icons/time2.png" className="menu-icon" alt="icon" />
                 </div>
                 <div className="menu-info unselectable">
-                    <div>Tempo est.</div>
+                    <div>Tempo</div>
                     <div>{timestamp ? timestampToString(timestamp) : '00:00:00'}</div>
                 </div>
 
@@ -113,7 +113,7 @@ export default function MenuComponent({ speed, distance, timestamp, dispatch }: 
                     <img src="./icons/time-machine2.png" className="menu-icon" alt="icon" />
                 </div>
                 <div className="menu-info unselectable">
-                    <div>Tempo de viagem</div>
+                    <div>Tempo estimado</div>
                     <div>00:05:35</div>
                 </div>
             </div>
